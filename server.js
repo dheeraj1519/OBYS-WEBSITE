@@ -1,4 +1,6 @@
-
+function loader()
+{
+    
 
 //counter
  
@@ -55,12 +57,46 @@ t1.to(".line h2",
  {
     y:1600,
     opacity:0,
-    duration:0.5,
+    duration:1,
     delay:0.2,
-    ease:power4
+    ease:"power4"
  });
 
  t1.to(".loader",
  {
    display:"none"
  });
+ t1.from(".nav",
+ {
+    opacity:0
+ })
+
+ t1.from("#page1-text1 h1 , #page1-text2 h1 , #page1-text3 h2 , #page1-text4 h1" , 
+ {
+    y:120,
+    stagger:0.2,
+    // duration:0.5
+ })
+
+}
+loader();
+
+function cursorAnimation()
+{
+    document.addEventListener("mousemove", function(dets)
+    {
+        gsap.to(".crsr" ,
+        {
+            left:dets.x,
+            top:dets.y
+        } )
+    } )
+    
+    Shery.makeMagnet(".navpart-2 h4" /* Element to target.*/, {
+        //Parameters are optional.
+        ease: "cubic-bezier(0.23, 1, 0.320, 1)",
+        duration: 1,
+      });
+}
+cursorAnimation();
+
